@@ -2,9 +2,12 @@
 
 namespace App\Controller\Admin;
 
+
+use App\Entity\Topics;
 use App\Controller\Admin\TopicsCrudController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
@@ -14,7 +17,7 @@ class DashboardController extends AbstractDashboardController
 {
 
 
-    public function __construct(    private AdminUrlGenerator $adminUrlGenerator    )
+    public function __construct(private AdminUrlGenerator $adminUrlGenerator)
 
     {
 
@@ -57,6 +60,10 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         
-        yield MenuItem::subMenu('Topics', 'fas fa-newspaper', Topics::class);
+        yield MenuItem::subMenu('Topics', 'fas fa-newspaper')->setSubItems([
+            MenuItem::linkToCrud('All Topics', 'fas fa-newspaper', Topics::class),
+            MenuItem::linkToCrud('Add', 'fas fa-plus', Topics::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Category', 'fas fa-list   ', Topics::class)
+        ]);
     }
 }

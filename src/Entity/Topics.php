@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\TopicsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Model\TimestampedInterface;
+use App\Repository\TopicsRepository;
+use App\Model\DateTimeInterface;
 
 #[ORM\Entity(repositoryClass: TopicsRepository::class)]
-class Topics
+class Topics implements TimestampedInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -78,17 +80,17 @@ class Topics
         return $this;
     }
 
-    public function getUpdateAt(): ?\DateTimeInterface
-    {
-        return $this->updateAt;
-    }
+    // public function getUpdateAt(): ?\DateTimeInterface
+    // {
+    //     return $this->updateAt;
+    // }
 
-    public function setUpdateAt(\DateTimeInterface $updateAt): self
-    {
-        $this->updateAt = $updateAt;
+    // public function setUpdateAt(\DateTimeInterface $updateAt): self
+    // {
+    //     $this->updateAt = $updateAt;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getUser(): ?User
     {

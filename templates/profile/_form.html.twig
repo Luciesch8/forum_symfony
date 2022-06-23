@@ -1,0 +1,14 @@
+
+
+
+
+{{ form_start(form) }}
+
+
+<div class="w-2/6 m-auto text-center mt-5 text-gray-300">
+    {{ form_widget(form) }}
+    <button class="text-white bg-gray-500 hover:bg-gray-500 focus:ring-4 focus:outline-none focus:ring-gray-500 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-gray-800 dark:hover:bg-gray-500 dark:focus:ring-gray-500">{{ button_label|default('Save') }}</button>
+</div>
+
+
+{{ form_end(form) }}

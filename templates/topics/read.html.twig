@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+
+
+    {% block body %}
+
+        {% block main %}
+
+        <div class="jumbtron">
+            <div class="container">
+                <h1 class="display-3 text-light">
+                    {{topics.title}}
+                </h1>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <p class="text-light">
+                        {{ topics.content }}
+                    </p>
+                    <p>
+                        <span class="text-muted text-light">    
+                        create at, user lastname, user firstname
+                        
+                        </span>
+                    </p> 
+                </div>
+
+            </div>    
+             
+        </div>    
+  
+
+        {% endblock %}
+
+    {% endblock %}
+
+

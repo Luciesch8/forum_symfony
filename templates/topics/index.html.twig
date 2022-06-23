@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Forum{% endblock %}
+
+
+
+    {% block body %}
+
+        {% block main %}
+
+
+
+        <h2 class="text-light position-relative">Recent Post</h2>
+
+        <div class="row">
+
+
+                <div class="w-75">
+
+                {% for topics in lastTopics %}
+
+
+                <div class="card mb-3 bg-gray-800" style="max-width: 800px;">
+                    <div class="col no-gutters">
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class=" card-title text-light">{{ topics.title }}</h5>
+                             <p maxlength="4" class="card-text text-light">  {{ topics.content }} </p>
+
+                            <div class="d-flex justify-content-between">
+                                <small class="text-muted text-light"> {{ topics.status }} </small>
+                                <small><a href="./single.php?id=<?php echo $recentArticles['id']  ?>">Voir plus</a></small>
+                            </div>
+
+
+                            
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                        
+                {% endfor %}
+
+
+                </div>
+
+
+             </div>  
+        </div>    
+  
+
+        {% endblock %}
+
+    {% endblock %}
+
+

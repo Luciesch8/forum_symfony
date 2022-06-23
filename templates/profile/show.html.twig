@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+    <h1 class="text-gray-300 text-5xl text-center mt-5 mb-3">User</h1>
+
+    <table class="table mt-5 mb-5">
+        <tbody>
+            <tr>
+                <th class="text-gray-300">Id</th>
+                <td class="text-gray-300">{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th class="text-gray-300">Email</th>
+                <td class="text-gray-300">{{ user.email }}</td>
+            </tr>
+            {# <tr>
+                <th>Roles</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ user.password }}</td>
+            </tr> #}
+            <tr>
+                <th class="text-gray-300">Firstname</th>
+                <td class="text-gray-300">{{ user.firstname }}</td>
+            </tr>
+            <tr>
+                <th class="text-gray-300">Lastname</th>
+                <td class="text-gray-300">{{ user.lastname }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="text-gray-300 ml-3 mb-3" href="{{ path('app_profile_edit')}}">edit</a>
+
+
+
+{% endblock %}
